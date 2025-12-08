@@ -1,11 +1,14 @@
+version: "3.9"
+
 services:
+  # OpenSearch
   opensearch:
     image: opensearchproject/opensearch:2.12.0
     container_name: opensearch
     environment:
       - discovery.type=single-node
-      - DISABLE_SECURITY_PLUGIN=true
       - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=.1973asdF
     ulimits:
       memlock:
         soft: -1
@@ -15,18 +18,20 @@ services:
     volumes:
       - opensearch-data:/usr/share/opensearch/data
 
+  # OpenSearch Dashboards
   dashboards:
     image: opensearchproject/opensearch-dashboards:2.12.0
     container_name: dashboards
     environment:
-      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
       OPENSEARCH_USERNAME: admin
-      OPENSEARCH_PASSWORD: admin
+      OPENSEARCH_PASSWORD: .1973asdF
     ports:
       - "5601:5601"
     depends_on:
       - opensearch
 
+  # Zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:7.6.0
     container_name: zookeeper
@@ -35,6 +40,7 @@ services:
     ports:
       - "2181:2181"
 
+  # Kafka
   kafka:
     image: confluentinc/cp-kafka:7.6.0
     container_name: kafka
@@ -49,6 +55,7 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+  # MinIO
   minio:
     image: minio/minio:latest
     container_name: minio
@@ -61,6 +68,8 @@ services:
     volumes:
       - minio-data:/data
 
+# Volúmenes persistentes
 volumes:
   opensearch-data:
   minio-data:
+
