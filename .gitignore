@@ -1,0 +1,28 @@
+# Python 
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.env
+
+# Docker
+*.log
+
+# Kafka / Zookeeper
+kafka-data/
+zookeeper-data/
+
+# OpenSearch / Elastic
+opensearch-data/
+
+# MinIO
+minio-data/
+
+# Security
+.env
+*.key
+*.crt
+
+# OS
+.DS_Store
+*.swp
