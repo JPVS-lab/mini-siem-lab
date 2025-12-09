@@ -31,3 +31,4 @@ minio-data/
 venv/
 __pycache__/
 .env
+alerts.log
