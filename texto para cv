@@ -1,0 +1,1 @@
+“Construí un Mini-SIEM desde cero usando Kafka como pipeline de eventos, OpenSearch para indexación y visualización, Grafana para dashboards ejecutivos, y módulos propios de detección, correlación y respuesta automática. El sistema detecta ataques de fuerza bruta, genera alertas y simula acciones de mitigación, almacenando evidencias en MinIO.”
