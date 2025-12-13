@@ -2,3 +2,12 @@
 PRIMERO INICIAR =  docker compose up -d
 
 VERIFICAR =  docker ps
+
+Verificar que todo los dockers esten activos
+
+iniciar en dashboads opensearch_ingestor.py  y   en tools  el event_simulator.py
+
+Estos  ya se  estan indexeando
+
+Abrir opensearch dashboards desde elnavegador y  empezar a hacer los  dashboards
+
