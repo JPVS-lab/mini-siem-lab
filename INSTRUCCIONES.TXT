@@ -1,0 +1,4 @@
+
+PRIMERO INICIAR =  docker compose up -d
+
+VERIFICAR =  docker ps
